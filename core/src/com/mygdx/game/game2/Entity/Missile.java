@@ -2,7 +2,7 @@ package com.mygdx.game.game2.Entity;
 
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.game2.MyMasterGame;
-import com.mygdx.game.game2.TextureManager;
+import com.mygdx.game.TextureManager;
 
 
 public class Missile extends Entity {

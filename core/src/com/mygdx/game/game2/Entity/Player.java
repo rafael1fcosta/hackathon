@@ -3,7 +3,7 @@ package com.mygdx.game.game2.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.game.game2.TextureManager;
+import com.mygdx.game.TextureManager;
 
 public class Player extends Entity {
 

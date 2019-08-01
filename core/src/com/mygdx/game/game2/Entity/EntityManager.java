@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.game2.MyMasterGame;
-import com.mygdx.game.game2.TextureManager;
+import com.mygdx.game.TextureManager;
 
 
 public class EntityManager {

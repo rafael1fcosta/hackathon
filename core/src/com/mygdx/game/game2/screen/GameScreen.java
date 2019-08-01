@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.game2.Entity.EntityManager;
 import com.mygdx.game.game2.Entity.Player;
 import com.mygdx.game.game2.MyMasterGame;
-import com.mygdx.game.game2.TextureManager;
+import com.mygdx.game.TextureManager;
 
 public class GameScreen extends Screen {
 
