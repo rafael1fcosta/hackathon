@@ -5,6 +5,14 @@ import com.badlogic.gdx.graphics.Texture;
 
 public abstract class TextureManager {
 
+    public static class Game1{
+
+
+
+    }
+
+
+
 
 
     public static class Game2 {
