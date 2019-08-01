@@ -2,54 +2,63 @@ package com.mygdx.game.game1;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.mygdx.game.ScreenManager;
 
-public class GameOne extends ApplicationAdapter {
+public class GameOne extends ScreenAdapter {
 
-    private SpriteBatch batch;
+    //private SpriteBatch batch;
+    private ScreenManager screenManager;
 
     private GameObject player;
+    private GameObject enemy;
 
     private Array<GameObject> books;
 
+    public GameOne(ScreenManager screenManager) {
+        this.screenManager = screenManager;
+        create();
+    }
 
-    @Override
+
     public void create() {
 
-        batch = new SpriteBatch();
 
         player = new Player();
+        enemy = new Enemy();
 
         books = new Array<>();
     }
 
 
     @Override
-    public void render() {
+    public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
-        batch.begin();
+        screenManager.getBatch().begin();
 
-        batch.draw(player.getTexture(), player.getX(), player.getY());
+        screenManager.getBatch().draw(player.getTexture(), player.getX(), player.getY());
 
         for (GameObject book : books) {
-            book.render(batch);
+            book.render(screenManager.getBatch());
         }
 
-        player.render(batch);
+        player.render(screenManager.getBatch());
+        enemy.render(screenManager.getBatch());
 
-        batch.end();
+        screenManager.getBatch().end();
 
 
          CollisionEngine.checkForBookPicked(player, books);
 
 
-        if (Math.random() * 100 < 0.5) {
+        if (Math.random() * 100 < 1) {
             createBook();
         }
 

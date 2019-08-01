@@ -27,5 +27,9 @@ public class ScreenManager extends Game {
         shapeRenderer.dispose();
         font.dispose();
     }
+
+    public SpriteBatch getBatch() {
+        return batch;
+    }
 }
 
