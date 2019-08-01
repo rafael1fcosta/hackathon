@@ -20,7 +20,6 @@ public class MainMenu extends ScreenAdapter {
         this.screenManager = screenManager;
     }
 
-
     public void changeScreen() {
         if (Gdx.input.isTouched()) {
             if (Gdx.input.getX() > 104.8f && Gdx.input.getX() < 304.8f && Gdx.input.getY() > 334 && Gdx.input.getY() < 434) {
@@ -30,7 +29,6 @@ public class MainMenu extends ScreenAdapter {
             }
         }
     }
-
         @Override
         public void render ( float delta){
 
