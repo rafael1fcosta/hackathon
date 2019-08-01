@@ -28,7 +28,6 @@ public class ScreenManager extends Game {
 
         screenMap.put(ScreenType.MAINMENU, new MainMenu(this));
 
-
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
         font = new BitmapFont();
