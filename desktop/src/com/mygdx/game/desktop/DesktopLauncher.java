@@ -4,6 +4,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.mygdx.game.CrookedGame;
 import com.mygdx.game.MainMenu;
+import com.mygdx.game.OptionsMenu;
 import com.mygdx.game.ScreenManager;
 
 public class DesktopLauncher {
