@@ -1,8 +1,11 @@
 package com.mygdx.game.game1;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
@@ -13,6 +16,8 @@ public class GameOne extends ApplicationAdapter {
     private SpriteBatch batch;
 
     private GameObject player;
+
+    private Texture gameBackground;
 
     private Array<GameObject> books;
 
@@ -25,6 +30,8 @@ public class GameOne extends ApplicationAdapter {
         player = new Player();
 
         books = new Array<>();
+
+        gameBackground = new Texture(Gdx.files.internal("backgroundGameOne.jpg"));
     }
 
 
@@ -34,7 +41,7 @@ public class GameOne extends ApplicationAdapter {
 
 
         batch.begin();
-
+        batch.draw(gameBackground, 0 , 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.draw(player.getTexture(), player.getX(), player.getY());
 
         for (GameObject book : books) {
@@ -65,4 +72,5 @@ public class GameOne extends ApplicationAdapter {
         Book book = new Book(MathUtils.random(0, 950), MathUtils.random(0, 700)); //TODO: limits!
         books.add(book);
     }
+
 }

@@ -8,7 +8,7 @@ public class Enemy extends GameObject {
 
 
     public Enemy() {
-        super(x, y, new Texture(Gdx.files.internal()));
+        super(0, 0, new Texture(Gdx.files.internal("")));
     }
 
     @Override
