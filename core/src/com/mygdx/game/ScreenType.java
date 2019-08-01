@@ -1,0 +1,18 @@
+package com.mygdx.game;
+
+public enum ScreenType {
+
+    MAINMENU,
+    PAUSE,
+    STORYMENU,
+    OPTIONSMINIGAME1,
+    OPTIONSMINIGAME2,
+    OPTIONSMINIGAME3,
+    MINIGAME1,
+    MINIGAME1ENDING,
+    MINIGAME2,
+    MINIGAME2ENDING,
+    MINIGAME3,
+    MINIGAME3ENDING,
+
+}
