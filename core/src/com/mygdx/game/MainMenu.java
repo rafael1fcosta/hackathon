@@ -11,8 +11,8 @@ public class MainMenu extends ScreenAdapter {
 
     private ScreenManager screenManager;
     private Texture menuBackground = new Texture(Gdx.files.internal("mainmenubackground.jpg"));
-    private Texture playButton = new Texture(Gdx.files.internal("playButton.png"));
-    private Texture exitButton = new Texture(Gdx.files.internal("exitButton.jpg"));
+    private Texture playButton = new Texture(Gdx.files.internal("button_play.png"));
+    private Texture exitButton = new Texture(Gdx.files.internal("button_exit.jpg"));
 
 
     public MainMenu(ScreenManager screenManager) {
