@@ -5,14 +5,15 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.game1.GameOne;
 
 public class MainMenu extends ScreenAdapter {
 
 
     private ScreenManager screenManager;
-    private Texture menuBackground = new Texture(Gdx.files.internal("mainmenubackground.jpg"));
-    private Texture playButton = new Texture(Gdx.files.internal("playButton.png"));
-    private Texture exitButton = new Texture(Gdx.files.internal("exitButton.jpg"));
+    private Texture menuBackground = new Texture(Gdx.files.internal("menu/mainmenubackground.jpg"));
+    private Texture playButton = new Texture(Gdx.files.internal("menu/playButton.png"));
+    private Texture exitButton = new Texture(Gdx.files.internal("menu/exitButton.jpg"));
 
 
     public MainMenu(ScreenManager screenManager) {
@@ -23,8 +24,9 @@ public class MainMenu extends ScreenAdapter {
     public void changeScreen() {
         if (Gdx.input.isTouched()) {
             if (Gdx.input.getX() > 104.8f && Gdx.input.getX() < 304.8f && Gdx.input.getY() > 334 && Gdx.input.getY() < 434) {
-                System.out.println("aconteceu. parabens.");
-                //screenManager.setScreen(new StoryMenu(screenManager));
+                screenManager.setScreen(new GameOne(screenManager));
+                //screenManager.setScreen(new OptionsMenu(screenManager));
+
             }
         }
     }
