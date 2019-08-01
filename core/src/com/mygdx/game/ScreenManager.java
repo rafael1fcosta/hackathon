@@ -11,10 +11,10 @@ import java.util.HashMap;
 
 public class ScreenManager extends Game {
 
-    SpriteBatch batch;
-    ShapeRenderer shapeRenderer;
-    BitmapFont font;
-    HashMap<ScreenType, ScreenAdapter> screenMap;
+  public static   SpriteBatch batch;
+    public static ShapeRenderer shapeRenderer;
+    public static BitmapFont font;
+    public static HashMap<ScreenType, ScreenAdapter> screenMap;
 
     MainMenu mainMenu;
 

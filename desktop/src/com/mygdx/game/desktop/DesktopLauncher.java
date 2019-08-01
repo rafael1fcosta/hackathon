@@ -10,7 +10,7 @@ import com.mygdx.game.game1.GameOne;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new GameOne(), config);
+		new LwjglApplication(new ScreenManager(), config);
 
 		config.width = 1024;
 		config.height= 768;
