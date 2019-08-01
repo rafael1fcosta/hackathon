@@ -10,10 +10,10 @@ public class OptionsMenu extends ScreenAdapter {
 
 
     private ScreenManager screenManager;
-    private Texture button = new Texture(Gdx.files.internal("button.png"));
-    private Texture option1 = new Texture(Gdx.files.internal("option1.png"));
-    private Texture option2 = new Texture(Gdx.files.internal("option2.png"));
-    private Texture option3 = new Texture(Gdx.files.internal("option3.png"));
+    private Texture button = new Texture(Gdx.files.internal("menu/button.png"));
+    private Texture option1 = new Texture(Gdx.files.internal("menu/option1.png"));
+    private Texture option2 = new Texture(Gdx.files.internal("menu/option2.png"));
+    private Texture option3 = new Texture(Gdx.files.internal("menu/option3.png"));
 
 
 
@@ -26,7 +26,6 @@ public class OptionsMenu extends ScreenAdapter {
     public void changeScreen() {
         if (Gdx.input.isTouched()) {
             if (Gdx.input.getX() > 104.8f && Gdx.input.getX() < 304.8f && Gdx.input.getY() > 334 && Gdx.input.getY() < 434) {
-                System.out.println("aconteceu. yay.");
                 //screenManager.setScreen(new StoryMenu(screenManager));
             }
         }

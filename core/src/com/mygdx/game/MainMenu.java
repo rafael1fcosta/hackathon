@@ -11,9 +11,9 @@ public class MainMenu extends ScreenAdapter {
 
 
     private ScreenManager screenManager;
-    private Texture menuBackground = new Texture(Gdx.files.internal("mainmenubackground.jpg"));
-    private Texture playButton = new Texture(Gdx.files.internal("playButton.png"));
-    private Texture exitButton = new Texture(Gdx.files.internal("exitButton.jpg"));
+    private Texture menuBackground = new Texture(Gdx.files.internal("menu/mainmenubackground.jpg"));
+    private Texture playButton = new Texture(Gdx.files.internal("menu/playButton.png"));
+    private Texture exitButton = new Texture(Gdx.files.internal("menu/exitButton.jpg"));
 
 
     public MainMenu(ScreenManager screenManager) {
@@ -24,7 +24,6 @@ public class MainMenu extends ScreenAdapter {
     public void changeScreen() {
         if (Gdx.input.isTouched()) {
             if (Gdx.input.getX() > 104.8f && Gdx.input.getX() < 304.8f && Gdx.input.getY() > 334 && Gdx.input.getY() < 434) {
-                System.out.println("aconteceu. parabens.");
                 screenManager.setScreen(new OptionsMenu(screenManager));
 
             }
