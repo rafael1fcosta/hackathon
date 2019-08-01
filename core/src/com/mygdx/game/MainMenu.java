@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.game1.GameOne;
 
 public class MainMenu extends ScreenAdapter {
 
@@ -24,7 +25,7 @@ public class MainMenu extends ScreenAdapter {
         if (Gdx.input.isTouched()) {
             if (Gdx.input.getX() > 104.8f && Gdx.input.getX() < 304.8f && Gdx.input.getY() > 334 && Gdx.input.getY() < 434) {
                 System.out.println("aconteceu. parabens.");
-                //screenManager.setScreen(new StoryMenu(screenManager));
+                screenManager.setScreen(new GameOne(screenManager));
             }
         }
     }
