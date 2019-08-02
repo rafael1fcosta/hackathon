@@ -47,7 +47,7 @@ public class GameOne extends ScreenAdapter {
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-
+        setPlayerPosToEnemy();
 
         screenManager.getBatch().begin();
         screenManager.getBatch().draw(gameBackground, 0 , 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -89,6 +89,12 @@ public class GameOne extends ScreenAdapter {
 
 
         ((Player) player).addCollidables(collidables);
+    }
+
+    private void setPlayerPosToEnemy() {
+
+        Enemy enemy1 = (Enemy) enemy;
+        enemy1.setPlayerPosition(player.getX(), player.getY());
     }
 
 }
