@@ -51,6 +51,7 @@ public class GameOne extends ScreenAdapter {
 
         screenManager.getBatch().begin();
         screenManager.getBatch().draw(gameBackground, 0 , 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        screenManager.getBatch().draw(new Texture("game1/badlogic.jpg"), collidables.get(0).x, collidables.get(0).y, collidables.get(0).width, collidables.get(0).height);
         screenManager.getBatch().draw(player.getTexture(), player.getX(), player.getY());
 
 
@@ -85,8 +86,7 @@ public class GameOne extends ScreenAdapter {
     }
 
     private void createCollidables() {
-        collidables.add(new Rectangle(500,500, 100, 100));
-
+        collidables.add(new Rectangle(100 , 100, 100, 100));
 
         ((Player) player).addCollidables(collidables);
     }
