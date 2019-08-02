@@ -18,6 +18,7 @@ public class OptionsMenu extends ScreenAdapter {
 
 
 
+
     public OptionsMenu(ScreenManager screenManager) {
         this.screenManager = screenManager;
     }
@@ -26,7 +27,6 @@ public class OptionsMenu extends ScreenAdapter {
     public void changeScreen() {
         if (Gdx.input.isTouched()) {
             if (Gdx.input.getX() > 104.8f && Gdx.input.getX() < 304.8f && Gdx.input.getY() > 334 && Gdx.input.getY() < 434) {
-                System.out.println("aconteceu. yay.");
                 //screenManager.setScreen(new StoryMenu(screenManager));
             }
         }

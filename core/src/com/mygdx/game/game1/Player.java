@@ -15,8 +15,6 @@ public class Player extends GameObject {
 
     public void move() {
 
-        System.out.println();
-
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
 
             getRectangle().x -= 200 * Gdx.graphics.getDeltaTime();

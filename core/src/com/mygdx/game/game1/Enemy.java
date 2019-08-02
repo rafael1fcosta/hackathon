@@ -11,7 +11,9 @@ public class Enemy extends GameObject {
 
     public Enemy() {
         super(0, 0, new Texture(Gdx.files.internal("game1/skeleton.png")));
+
     }
+
 
     @Override
     public void render(Batch batch) {
