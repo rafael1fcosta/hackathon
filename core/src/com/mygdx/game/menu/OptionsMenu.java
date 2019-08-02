@@ -34,7 +34,7 @@ public class OptionsMenu extends ScreenAdapter {
 
                 if (Gdx.input.getY() >= getOption2PosY() &&
                         Gdx.input.getY() <= getOption2PosY() + investInYouButton.getHeight()) {
-                    screenManager.setScreen(new GameOne(screenManager));
+                    screenManager.setScreen(new Game1instructionsMenu(screenManager));
                 }
 
                 // return = option 1
