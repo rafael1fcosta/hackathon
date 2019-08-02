@@ -10,10 +10,10 @@ public class OptionsMenu extends ScreenAdapter {
 
 
     private ScreenManager screenManager;
-    private Texture button = new Texture(Gdx.files.internal("button.png"));
-    private Texture option1 = new Texture(Gdx.files.internal("option1.png"));
-    private Texture option2 = new Texture(Gdx.files.internal("option2.png"));
-    private Texture option3 = new Texture(Gdx.files.internal("option3.png"));
+    private Texture background_city_choice = new Texture(Gdx.files.internal("menu/background_city_choice.jpg"));
+    private Texture option1 = new Texture(Gdx.files.internal("menu/button_invest_in_yourself.png"));
+    private Texture option2 = new Texture(Gdx.files.internal("menu/button_choose_an_easy_life.png"));
+    private Texture option3 = new Texture(Gdx.files.internal("menu/button_help_others.png"));
 
 
 
@@ -36,18 +36,13 @@ public class OptionsMenu extends ScreenAdapter {
     public void render ( float delta){
 
         screenManager.batch.begin();
-        Gdx.gl.glClearColor(.25f, .45f, .7f, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        screenManager.batch.draw(button, (Gdx.graphics.getWidth() * 0.05f), Gdx.graphics.getHeight()* 0.10f);
-        screenManager.batch.draw(option1,(Gdx.graphics.getWidth() * 0.11f), Gdx.graphics.getHeight()* 0.15f);
-
-        screenManager.batch.draw(button, (Gdx.graphics.getWidth() * 0.5f- 300/2), Gdx.graphics.getHeight()* 0.35f);
-        screenManager.batch.draw(option2, (Gdx.graphics.getWidth() * 0.56f -300/2), Gdx.graphics.getHeight()* 0.4f);
-
-
-        screenManager.batch.draw(button, (Gdx.graphics.getWidth() * 0.65f), Gdx.graphics.getHeight()* 0.10f);
-        screenManager.batch.draw(option2, (Gdx.graphics.getWidth() * 0.71f -300/2), Gdx.graphics.getHeight()* 0.15f);
+        screenManager.batch.draw(background_city_choice, 0, 0, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight());
+        screenManager.batch.draw(option1,(Gdx.graphics.getWidth() * 0.75f) - 132, Gdx.graphics.getHeight()* 0.15f);
+        screenManager.batch.draw(option2, (Gdx.graphics.getWidth() * 0.75f) -132, Gdx.graphics.getHeight()* 0.4f);
+        screenManager.batch.draw(option3, (Gdx.graphics.getWidth() * 0.75f) - 132, Gdx.graphics.getHeight()* 0.65f);
 
         changeScreen();
         screenManager.batch.end();
