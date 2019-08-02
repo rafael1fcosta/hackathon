@@ -12,6 +12,9 @@ public class Player extends GameObject {
     private Direction currentDirection;
     private Array<Rectangle> collidables;
 
+    public static int playerScore = 0;
+
+
     public Player() {
         super(366, 42, new Texture(Gdx.files.internal("game1/wizardLeftRed.png")));
     }
@@ -122,4 +125,8 @@ public class Player extends GameObject {
     public void setCurrentDirection(Direction currentDirection) {
         this.currentDirection = currentDirection;
     }
+    public void addPlayerScore() {
+        this.playerScore ++;
+    }
+
 }
