@@ -55,8 +55,8 @@ public class Enemy extends Entity {
     private void shoot() {
         playerEnergy.getShot();
         entityManager.shot();
-        shoot = Gdx.audio.newSound(Gdx.files.internal("sounds/shots.mp3"));
-        shoot.play();
+     //   shoot = Gdx.audio.newSound(Gdx.files.internal("sounds/shots.mp3"));
+       // shoot.play();
         System.out.println("Shoot " + texture.toString());
     }
 }

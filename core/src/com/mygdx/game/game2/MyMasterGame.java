@@ -15,7 +15,7 @@ import com.mygdx.game.game2.screen.ScreenManager;
 public class MyMasterGame extends ScreenAdapter {
 
 	public static int WIDTH = 480, HEIGHT = 800;
-	private final com.mygdx.game.ScreenManager screenManager1;
+
 	//Texture img;
 
 	SpriteBatch batch;
@@ -23,10 +23,10 @@ public class MyMasterGame extends ScreenAdapter {
 	private boolean isGamePaused;
 	private Texture gamePause;
 
-	private ScreenManager screenManager;
+	private com.mygdx.game.ScreenManager screenManager;
 	
 	public MyMasterGame(com.mygdx.game.ScreenManager screenManager){
-		this.screenManager1=screenManager;
+		this.screenManager=screenManager;
 		create();
 	}
 
@@ -38,7 +38,7 @@ public class MyMasterGame extends ScreenAdapter {
 		camera = new OrthographicCamera(MyMasterGame.WIDTH, MyMasterGame.HEIGHT);
 		//camera = new OrthographicCamera(1, h/w);
 		//img = new Texture("badlogic.jpg");
-		ScreenManager.setScreen(new GameScreen());
+		ScreenManager.setScreen(new GameScreen(screenManager));
 
 		gamePause = new Texture(Gdx.files.internal("game2/game2Pause.png"));
 

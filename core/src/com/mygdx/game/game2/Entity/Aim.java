@@ -15,6 +15,7 @@ import com.mygdx.game.game2.MyMasterGame;
 
 public class Aim extends Entity{
 
+    private Pixmap pm;
     private final EntityManager entityManager;
     Rectangle rect = new Rectangle();
     private Entity enemyToKill;
@@ -118,4 +119,5 @@ public class Aim extends Entity{
 
 
     }
+
 }
