@@ -15,7 +15,6 @@ import com.mygdx.game.menu.Game1BadEnding;
 import com.mygdx.game.menu.Game1GoodEnding;
 import com.mygdx.game.menu.MainMenu;
 
-import java.awt.*;
 
 public class GameOne extends ScreenAdapter {
 
@@ -125,7 +124,7 @@ public class GameOne extends ScreenAdapter {
     }
 
     private void createBook() {
-        Book book = new Book(MathUtils.random(0, 1000), 120 + MathUtils.random(0, 525)); //TODO: limits!
+        Book book = new Book(MathUtils.random(0, 1000), 120 + MathUtils.random(0, 525));
 
         if (CollisionEngine.bookOutOfBounds(book, collidables)) {
             createBook();

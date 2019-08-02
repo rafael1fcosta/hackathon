@@ -3,11 +3,9 @@ package com.mygdx.game.game2.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.mygdx.game.ScreenManager;
-import com.mygdx.game.game2.Entity.Aim;
 import com.mygdx.game.game2.Entity.EntityManager;
 import com.mygdx.game.game2.Entity.Player;
 import com.mygdx.game.game2.MyMasterGame;
@@ -48,10 +46,8 @@ public class GameScreen extends Screen {
 
         sb.draw( TextureManager.Game2.BACKGROUND,0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         entityManager.render(sb);
-        //player.render(sb);
         sb.end();
         if (entityManager.gameOver()) {
-         //  System.out.println("Game over");
             Gdx.graphics.setSystemCursor(Cursor.SystemCursor.Arrow);
             if(entityManager.getEnergy() <= 0){
                 screenManager.setScreen(new Game2BadEnding(screenManager));

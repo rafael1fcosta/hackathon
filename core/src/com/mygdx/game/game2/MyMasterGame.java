@@ -1,6 +1,5 @@
 package com.mygdx.game.game2;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
@@ -16,7 +15,6 @@ public class MyMasterGame extends ScreenAdapter {
 
 	public static int WIDTH = 480, HEIGHT = 800;
 
-	//Texture img;
 
 	SpriteBatch batch;
 	Camera camera;
@@ -31,13 +29,9 @@ public class MyMasterGame extends ScreenAdapter {
 	}
 
 	public void create () {
-/*		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
-		c*/
+
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera(MyMasterGame.WIDTH, MyMasterGame.HEIGHT);
-		//camera = new OrthographicCamera(1, h/w);
-		//img = new Texture("badlogic.jpg");
 		ScreenManager.setScreen(new GameScreen(screenManager));
 
 		gamePause = new Texture(Gdx.files.internal("game2/game2Pause.png"));
@@ -63,11 +57,6 @@ public class MyMasterGame extends ScreenAdapter {
 			ScreenManager.getCurrentScreen().update();
 			ScreenManager.getCurrentScreen().render(batch);
 		}
-
-
-		//batch.begin();
-		//batch.draw(img, 0, 0);
-		//batch.end();
 	}
 	
 	@Override
@@ -75,7 +64,6 @@ public class MyMasterGame extends ScreenAdapter {
 		if (ScreenManager.getCurrentScreen()!=null)
 			ScreenManager.getCurrentScreen().dispose();
 		batch.dispose();
-		//img.dispose();
 	}
 
 	@Override
@@ -86,8 +74,6 @@ public class MyMasterGame extends ScreenAdapter {
 
 	@Override
 	public void pause() {
-		//if (ScreenManager.getCurrentScreen()!=null)
-		//	ScreenManager.getCurrentScreen().pause();
 
 		if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
 			isGamePaused = true;

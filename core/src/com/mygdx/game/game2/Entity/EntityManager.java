@@ -12,26 +12,17 @@ public class EntityManager {
 
     private ScreenManager screenManager;
     private final Array<Entity> entities = new Array<>();
-   // private final Player player;
     private final Aim aim;
     private PlayerEnergy playerEnergy = new PlayerEnergy();
     private int shot = 0;
 
     public EntityManager(int count) {
-/*        this.player = new Player(
-                new Vector2((MyMasterGame.WIDTH - TextureManager.Game2.PLAYER.getWidth()) / 2, 0),
-                new Vector2(0, 0),
-                this
-        );*/
+
 
        for (int i = 0; i < count; i++) {
-            /*float x = MathUtils.random(0, MyMasterGame.WIDTH - TextureManager.Game2.ENEMY.getWidth());
-            float y = MathUtils.random(MyMasterGame.HEIGHT, MyMasterGame.HEIGHT * 2);
-            float speed = MathUtils.random(2, 5);*/
 
             addEntity(
                     EnemyFactory.createEnemy(EnemyType.values()[MathUtils.random(0,2)], playerEnergy, this)
-                    //new Enemy(et, new Vector2(x, y), new Vector2(0, -speed))
             );
         }
 
@@ -42,7 +33,6 @@ public class EntityManager {
     public void update() {
         for (Entity e : entities)
             e.update();
-        //player.update();
 
         for (Missile m : getMissiles())
             if(m.checkEnd())
@@ -59,12 +49,6 @@ public class EntityManager {
         for (int i = 0; i < entities.size; i++) {
             entities.get(i).render(sb);
         }
-       /* for (Entity e : entities) {
-            if (e == null) return;
-                e.render(sb);
-        }*/
-       // player.render(sb);
-
     }
 
     private void checkColisions(){

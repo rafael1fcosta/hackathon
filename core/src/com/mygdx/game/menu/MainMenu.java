@@ -3,7 +3,6 @@ package com.mygdx.game.menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.ScreenManager;
 
@@ -26,7 +25,6 @@ public class MainMenu extends ScreenAdapter {
     }
 
     public void create(){
-        // Gdx.audio.newSound(Gdx.files.internal("sounds/shots.wav"));
         music = Gdx.audio.newMusic(Gdx.files.internal("sounds/em.mp3"));
         music.setLooping(true);
         music.play();

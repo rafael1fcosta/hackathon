@@ -5,8 +5,6 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.ScreenManager;
-import com.mygdx.game.game1.GameOne;
-import com.mygdx.game.game2.MyMasterGame;
 
 public class OptionsMenu extends ScreenAdapter {
 

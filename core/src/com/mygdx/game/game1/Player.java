@@ -52,7 +52,7 @@ public class Player extends GameObject {
 
             getRectangle().x += 200 * Gdx.graphics.getDeltaTime();
 
-            if (getRectangle().x > 1024 - 40) { //TODO: change with img size and put in finals
+            if (getRectangle().x > 1024 - 40) {
                 getRectangle().x = 1024 - 40;
                 return;
             }

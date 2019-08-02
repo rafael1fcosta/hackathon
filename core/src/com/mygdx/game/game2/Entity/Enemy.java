@@ -1,7 +1,6 @@
 package com.mygdx.game.game2.Entity;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -16,7 +15,6 @@ public class Enemy extends Entity {
     private final EntityManager entityManager;
     private float delta, deltaI;
 
-    //public Enemy(EnemyType typeEnemy, Vector2 pos, Vector2 direction) {
     public Enemy(Texture texture, Vector2 pos, Vector2 direction, PlayerEnergy playerEnergy, EntityManager entityManager) {
         super(texture, pos, direction );
         this.playerEnergy = playerEnergy;
