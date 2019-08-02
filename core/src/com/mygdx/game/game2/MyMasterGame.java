@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.game2.screen.GameScreen;
-import com.mygdx.game.game2.screen.Screen;
 import com.mygdx.game.game2.screen.ScreenManager;
 
 public class MyMasterGame extends ScreenAdapter {
@@ -64,6 +63,8 @@ public class MyMasterGame extends ScreenAdapter {
 			ScreenManager.getCurrentScreen().update();
 			ScreenManager.getCurrentScreen().render(batch);
 		}
+
+
 		//batch.begin();
 		//batch.draw(img, 0, 0);
 		//batch.end();
