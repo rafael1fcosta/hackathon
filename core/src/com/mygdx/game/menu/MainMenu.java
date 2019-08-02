@@ -5,6 +5,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.ScreenManager;
 import com.mygdx.game.game1.GameOne;
+import com.mygdx.game.game2.MyMasterGame;
 
 public class MainMenu extends ScreenAdapter {
 
@@ -28,6 +29,7 @@ public class MainMenu extends ScreenAdapter {
             if (Gdx.input.getX() > 155f && Gdx.input.getX() < 357f &&
                     Gdx.input.getY() > 642.7f && Gdx.input.getY() < 739.7f) {
                 screenManager.setScreen(new OptionsMenu(screenManager));
+
             }
 
             if (Gdx.input.getX() > 667f && Gdx.input.getX() < 869f &&

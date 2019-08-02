@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Rectangle;
 
 public class Player extends GameObject {
 
-
     public Player() {
         super(0, 0, new Texture(Gdx.files.internal("game1/wizardLeftRed.png")));
     }
@@ -73,5 +72,6 @@ public class Player extends GameObject {
     public void setTexture(Texture texture) {
         super.setTexture(texture);
     }
+
 
 }

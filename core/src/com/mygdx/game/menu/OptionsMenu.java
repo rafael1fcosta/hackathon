@@ -27,8 +27,8 @@ public class OptionsMenu extends ScreenAdapter {
             if (Gdx.input.getX() >= getOptionsPosX() &&
                     Gdx.input.getX() <= getOptionsPosX() + easyLifeButton.getWidth()) {
 
-                if (Gdx.input.getY() >= getOption1PosY() &&
-                        Gdx.input.getY() <= getOption1PosY() + easyLifeButton.getHeight()) {
+                if (Gdx.input.getY() >= getOption3PosY() &&
+                        Gdx.input.getY() <= getOption3PosY() + easyLifeButton.getHeight()) {
                     screenManager.setScreen(new MyMasterGame(screenManager));
                 }
 
@@ -42,8 +42,6 @@ public class OptionsMenu extends ScreenAdapter {
                         Gdx.input.getY() <= getOption1PosY() + returnButton.getHeight()) {
                     screenManager.setScreen(new MainMenu(screenManager));
                 }
-
-
             }
         }
     }

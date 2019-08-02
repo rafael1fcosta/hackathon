@@ -1,9 +1,6 @@
 package com.mygdx.game.game1;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -15,12 +12,15 @@ import com.mygdx.game.ScreenManager;
 
 public class GameOne extends ScreenAdapter {
 
+    private boolean isGamePaused;
+
     private ScreenManager screenManager;
 
     private GameObject player;
     private GameObject enemy;
 
     private Texture gameBackground;
+    private Texture gamePause;
 
     private Array<GameObject> books;
 
@@ -30,25 +30,36 @@ public class GameOne extends ScreenAdapter {
     }
 
 
-    public void create(){
+    public void create() {
 
         player = new Player();
         enemy = new Enemy();
 
         books = new Array<>();
 
-        gameBackground = new Texture(Gdx.files.internal("backgroundGameOne.jpg"));
+        gameBackground = new Texture(Gdx.files.internal("game1/backgroundGameOne.jpg"));
+        gamePause = new Texture(Gdx.files.internal("game1/game1Pause.png"));
+
     }
 
 
     @Override
     public void render(float delta) {
+
+        pause();
+
+        if (isGamePaused) {
+            screenManager.getBatch().begin();
+            screenManager.getBatch().draw(gamePause, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+            screenManager.getBatch().end();
+            return;
+        }
+
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
-
         screenManager.getBatch().begin();
-        screenManager.getBatch().draw(gameBackground, 0 , 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        screenManager.getBatch().draw(gameBackground, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         screenManager.getBatch().draw(player.getTexture(), player.getX(), player.getY());
 
 
@@ -62,7 +73,7 @@ public class GameOne extends ScreenAdapter {
         screenManager.getBatch().end();
 
 
-         CollisionEngine.checkForBookPicked(player, books);
+        CollisionEngine.checkForBookPicked(player, books);
 
 
         if (Math.random() * 100 < 1) {
@@ -80,6 +91,17 @@ public class GameOne extends ScreenAdapter {
     private void createBook() {
         Book book = new Book(MathUtils.random(0, 950), MathUtils.random(0, 700)); //TODO: limits!
         books.add(book);
+    }
+
+    public void pause() {
+
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+                isGamePaused = true;
+            }
+
+        if(isGamePaused && Gdx.input.isKeyPressed(Input.Keys.ENTER)){
+            isGamePaused=false;
+        }
     }
 
 }
