@@ -12,9 +12,9 @@ public class Sound extends ScreenAdapter {
 
     public void create() {
 
-       // Gdx.audio.newSound(Gdx.files.internal("sounds/shots.mp3"));
+        Gdx.audio.newSound(Gdx.files.internal("sounds/shots.mp3"));
 
-        // Gdx.audio.newSound(Gdx.files.internal("sounds/beep.wav"));
+        Gdx.audio.newSound(Gdx.files.internal("sounds/beep.wav"));
 
         Gdx.audio.newMusic(Gdx.files.internal("sounds/em.mp3"));
 
