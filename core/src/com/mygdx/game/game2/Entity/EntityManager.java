@@ -108,4 +108,8 @@ public class EntityManager {
         entities.removeValue(e, false);
 
     }
+
+    public int getEnergy() {
+       return playerEnergy.getEnergy();
+    }
 }

@@ -40,7 +40,12 @@ public class GameScreen extends Screen {
         //player.render(sb);
         sb.end();
         if (entityManager.gameOver()) {
-            System.out.println("Game Over");
+            if(entityManager.getEnergy() <= 0){
+
+            } else {
+
+            }
+
             pause();
         }
 

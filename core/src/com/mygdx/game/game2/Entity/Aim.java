@@ -19,8 +19,8 @@ public class Aim extends Entity{
     Rectangle rect = new Rectangle();
     private Entity enemyToKill;
     private OrthographicCamera camera;
-    private static final int W = 6;
-    private static final int H = 6;
+    private static final float W = 0.1f;
+    private static final float H = 0.1f;
 
     public Aim(EntityManager em) {
         super(new Texture(0,0, Pixmap.Format.RGB888),
@@ -29,8 +29,8 @@ public class Aim extends Entity{
                         (MyMasterGame.HEIGHT - TextureManager.Game2.AIM128.getHeight())/2),
                 new Vector2(0,0)
         );
-        rect.setWidth(W);
-        rect.setHeight(H);
+
+        rect.set(0,0,W, H);
         this.entityManager = em;
 
         /*rect = new Rectangle(
@@ -56,7 +56,7 @@ public class Aim extends Entity{
         int x, y;
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
 
-            Vector2 touchPos = new Vector2(Gdx.input.getX()  ,MyMasterGame.HEIGHT - Gdx.input.getY());
+           // Vector2 touchPos = new Vector2(Gdx.input.getX(),MyMasterGame.HEIGHT - Gdx.input.getY() + 30);
            // touchPos.x -= W;
            // touchPos.y -= H;
            // touchPos.set(Gdx.input.getX(), Gdx.input.getY());
@@ -66,8 +66,12 @@ public class Aim extends Entity{
             //touchPos.y -= texture.getHeight() / 2;
             //touchPos.y -= TextureManager.Game2.AIM128.getHeight() / 2;
             //rect.setCenter(touchPos.x, touchPos.y);
-            rect.setPosition(touchPos);
-            shot(rect);
+           /* Rectangle ret = new Rectangle();
+            ret.setPosition(touchPos);
+            ret.setWidth(0);
+            ret.setHeight(0);*/
+            //rect.setPosition(touchPos);
+            shot(Gdx.input.getX()  , MyMasterGame.HEIGHT - Gdx.input.getY() -40);
 
             //rect.setPosition(touchPos);
         }
@@ -75,15 +79,33 @@ public class Aim extends Entity{
         super.render(sb);
     }
 
-    private void shot(Rectangle me){
+    private boolean colision(float x, float y, Rectangle ret){
+        int factorX = 20;
+        int factorY = 30;
+        return (x > ret.getX()+factorX && x < ret.getX() + ret.width -factorX &&
+                y > ret.getY() + factorY && y < ret.getY() + ret.height - factorY);
+    }
+
+    private void shot(float x, float y){
         Array<Enemy> enemies = entityManager.getEnemies();
         for (Entity e: enemies) {
-            if(e.getBounds().contains(me))
+            if (colision(x, y, e.getBounds())){
+                entityManager.delete(e);
+
+                return;
+
+            }
+            /*if(e.getBounds().contains(me)) {
                 this.enemyToKill = e;
+                return;
+            }*/
+
 
         }
-        update();
+        //update();
     }
+
+
 
     @Override
     public void update() {
