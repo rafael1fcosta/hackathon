@@ -37,7 +37,7 @@ public class MainMenu extends ScreenAdapter {
 
             if (Gdx.input.getX() > 155f && Gdx.input.getX() < 357f &&
                     Gdx.input.getY() > 642.7f && Gdx.input.getY() < 739.7f) {
-                screenManager.setScreen(new OptionsMenu(screenManager));
+                screenManager.setScreen(new Lore(screenManager));
             }
 
             if (Gdx.input.getX() > 667f && Gdx.input.getX() < 869f &&

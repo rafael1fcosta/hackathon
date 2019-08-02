@@ -26,7 +26,7 @@ public class ScreenManager extends Game {
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
         font = new BitmapFont();
-        setScreen(new Lore(this));
+        setScreen(new MainMenu(this));
     }
 
     @Override

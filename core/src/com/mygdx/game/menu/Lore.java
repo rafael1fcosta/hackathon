@@ -25,7 +25,7 @@ public class Lore extends ScreenAdapter {
             @Override
             public boolean keyDown(int keyCode) {
                 if (keyCode == Input.Keys.RIGHT) {
-                    screenManager.setScreen(new MainMenu(screenManager));
+                    screenManager.setScreen(new OptionsMenu(screenManager));
                     dispose();
                 }
                 return true;
