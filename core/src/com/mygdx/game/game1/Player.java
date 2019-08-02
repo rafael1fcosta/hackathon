@@ -78,4 +78,5 @@ public class Player extends GameObject {
     public void addPlayerScore() {
         this.playerScore ++;
     }
+
 }
