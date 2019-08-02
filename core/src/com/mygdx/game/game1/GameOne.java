@@ -29,7 +29,7 @@ public class GameOne extends ScreenAdapter {
     }
 
 
-    public void create(){
+    public void create() {
 
         player = new Player();
         enemy = new Enemy();
@@ -50,8 +50,7 @@ public class GameOne extends ScreenAdapter {
         setPlayerPosToEnemy();
 
         screenManager.getBatch().begin();
-        screenManager.getBatch().draw(gameBackground, 0 , 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        screenManager.getBatch().draw(new Texture("game1/badlogic.jpg"), collidables.get(0).x, collidables.get(0).y, collidables.get(0).width, collidables.get(0).height);
+        screenManager.getBatch().draw(gameBackground, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         screenManager.getBatch().draw(player.getTexture(), player.getX(), player.getY());
 
 
@@ -65,7 +64,7 @@ public class GameOne extends ScreenAdapter {
         screenManager.getBatch().end();
 
 
-         CollisionEngine.checkForBookPicked(player, books);
+        CollisionEngine.checkForBookPicked(player, books);
 
 
         if (Math.random() * 100 < 1) {
@@ -78,6 +77,7 @@ public class GameOne extends ScreenAdapter {
     @Override
     public void dispose() {
         player.getTexture().dispose();
+        enemy.getTexture().dispose();
     }
 
     private void createBook() {
@@ -86,7 +86,26 @@ public class GameOne extends ScreenAdapter {
     }
 
     private void createCollidables() {
-        collidables.add(new Rectangle(100 , 100, 100, 100));
+        collidables.add(new Rectangle(155, 260, 55, 55));
+        collidables.add(new Rectangle(121, 455, 195, 57));
+        collidables.add(new Rectangle(468, 164, 50, 200));
+
+        collidables.add(new Rectangle(692, 224, 45, 20));
+        collidables.add(new Rectangle(748, 224, 120, 40));
+        collidables.add(new Rectangle(875, 224, 25, 50));
+
+        collidables.add(new Rectangle(840, 384, 25, 25));
+        collidables.add(new Rectangle(827, 421, 60, 60));
+        collidables.add(new Rectangle(878, 467, 25, 25));
+        collidables.add(new Rectangle(570, 527, 94, 60));
+        collidables.add(new Rectangle(600, 495, 25, 25));
+
+        //walls
+        collidables.add(new Rectangle(0, 0, 318, 105));
+        collidables.add(new Rectangle(429,0, 595, 105));
+
+        collidables.add(new Rectangle(0, 700, 290, 120));
+        collidables.add(new Rectangle(477, 700, 536, 120));
 
         ((Player) player).addCollidables(collidables);
     }

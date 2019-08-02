@@ -23,6 +23,7 @@ public class Enemy extends GameObject {
 
     private void move() {
 
+
         int number = (int) (Math.random() * 2);
 
         if (number == 0) {
