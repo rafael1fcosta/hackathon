@@ -42,7 +42,15 @@ public class CollisionEngine {
 
     public static boolean checkEnemyHit(GameObject player, GameObject enemy) {
 
-        if (player.getRectangle().contains(enemy.getRectangle())) {
+        float playerMinX = player.getX();
+        float playerMinY = player.getY();
+        float playerMaxX = player.getRectangle().width + playerMinX;
+        float playerMaxY = player.getRectangle().height + playerMinY;
+
+        if (playerMinX <= enemy.getRectangle().x + enemy.getRectangle().width - 10
+                && playerMaxX >= enemy.getRectangle().x + 10
+                && playerMinY <= enemy.getRectangle().y + enemy.getRectangle().height - 10
+                && playerMaxY >= enemy.getRectangle().y + 10) {
             return true;
         }
         return false;

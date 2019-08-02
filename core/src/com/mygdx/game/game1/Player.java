@@ -16,7 +16,7 @@ public class Player extends GameObject {
 
 
     public Player() {
-        super(366, 42, new Texture(Gdx.files.internal("game1/wizardLeftRed.png")));
+        super(366, 42, new Texture(Gdx.files.internal("game1/playerReal.png")));
     }
 
     public void move() {
