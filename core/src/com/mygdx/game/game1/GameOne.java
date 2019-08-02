@@ -2,6 +2,7 @@ package com.mygdx.game.game1;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
@@ -17,6 +18,7 @@ import java.awt.*;
 public class GameOne extends ScreenAdapter {
 
     private CharSequence str = String.valueOf(Player.playerScore);
+    private Sound bookPicked;
     private boolean isGamePaused;
 
     private ScreenManager screenManager;
@@ -50,6 +52,8 @@ public class GameOne extends ScreenAdapter {
 
         gameBackground = new Texture(Gdx.files.internal("game1/backgroundGameOne.jpg"));
         gamePause = new Texture(Gdx.files.internal("game1/game1Pause.png"));
+
+        bookPicked = Gdx.audio.newSound(Gdx.files.internal("sounds/beep.wav"));
 
     }
 
@@ -94,7 +98,9 @@ public class GameOne extends ScreenAdapter {
         screenManager.getBatch().end();
 
 
-        CollisionEngine.checkForBookPicked(player, books);
+        if(CollisionEngine.checkForBookPicked(player, books)) {
+            bookPicked.play();
+        }
 
 
         if (Math.random() * 100 < 1) {
@@ -102,6 +108,7 @@ public class GameOne extends ScreenAdapter {
         }
 
         if (CollisionEngine.checkEnemyHit(player, enemy)) {
+            MainMenu.music.dispose();
             screenManager.setScreen(new MainMenu(screenManager));
         }
 
@@ -154,6 +161,7 @@ public class GameOne extends ScreenAdapter {
 
         if (Player.playerScore == 15) {
 
+            MainMenu.music.dispose();
             screenManager.setScreen(new MainMenu(screenManager));
         }
     }
