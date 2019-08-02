@@ -4,18 +4,17 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.math.Rectangle;
 
 public class Player extends GameObject {
 
+    public static int playerScore = 0;
+
 
     public Player() {
-        super(0, 0, new Texture(Gdx.files.internal("wizardLeftRed.png")));
+        super(0, 0, new Texture(Gdx.files.internal("game1/wizardLeftRed.png")));
     }
 
     public void move() {
-
-        System.out.println();
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
 
@@ -74,6 +73,10 @@ public class Player extends GameObject {
 
     public void setTexture(Texture texture) {
         super.setTexture(texture);
+    }
+
+    public void addPlayerScore() {
+        this.playerScore ++;
     }
 
 }

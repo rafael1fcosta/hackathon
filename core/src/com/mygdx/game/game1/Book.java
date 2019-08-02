@@ -12,7 +12,7 @@ public class Book extends GameObject {
     private long randomY;
 
     public Book(long randomX, long randomY) {
-        super(randomX, randomY, new Texture(Gdx.files.internal("spellbook.png")));
+        super(randomX, randomY, new Texture(Gdx.files.internal("game1/spellbook.png")));
 
         this.randomX = randomX;
         this.randomY = randomY;

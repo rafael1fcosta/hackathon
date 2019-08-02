@@ -19,6 +19,10 @@ public abstract class Entity {
         this.direction = direction;
     }
 
+    public void setTexture(Texture texture) {
+        this.texture = texture;
+    }
+
     public abstract void update();
 
     public void render(SpriteBatch sb){
