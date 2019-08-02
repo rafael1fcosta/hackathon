@@ -5,6 +5,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.mygdx.game.menu.Lore;
 import com.mygdx.game.menu.MainMenu;
 
 import java.util.HashMap;
@@ -19,12 +20,13 @@ public class ScreenManager extends Game {
     @Override
     public void create () {
         screenMap=new  HashMap<>();
-        screenMap.put(ScreenType.MAINMENU, new MainMenu(this));
+
+      //  screenMap.put(ScreenType.MAINMENU, new MainMenu(this));
 
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
         font = new BitmapFont();
-        setScreen(screenMap.get(ScreenType.MAINMENU));
+        setScreen(new MainMenu(this));
     }
 
     @Override
