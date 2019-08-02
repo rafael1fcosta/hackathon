@@ -12,33 +12,25 @@ import java.util.HashMap;
 
 public class ScreenManager extends Game {
 
-  public static   SpriteBatch batch;
+    public static SpriteBatch batch;
     public static ShapeRenderer shapeRenderer;
     public static BitmapFont font;
     public static HashMap<ScreenType, ScreenAdapter> screenMap;
 
-    MainMenu mainMenu;
-
-
     @Override
     public void create () {
-
-
-
         screenMap=new  HashMap<>();
 
-        screenMap.put(ScreenType.MAINMENU, new Lore(this));
+      //  screenMap.put(ScreenType.MAINMENU, new MainMenu(this));
 
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
         font = new BitmapFont();
-        setScreen(screenMap.get(ScreenType.MAINMENU));
-
-
+        setScreen(new Lore(this));
     }
 
     @Override
-    public void dispose () {
+    public void dispose() {
         batch.dispose();
         shapeRenderer.dispose();
         font.dispose();
