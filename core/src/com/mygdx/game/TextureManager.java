@@ -7,13 +7,7 @@ public abstract class TextureManager {
 
     public static class Game1{
 
-
-
     }
-
-
-
-
 
     public static class Game2 {
 
@@ -24,7 +18,4 @@ public abstract class TextureManager {
         public static final Texture BACKGROUND = new Texture(Gdx.files.internal(prefix +"background.png"));
 
     }
-
-
-
 }
