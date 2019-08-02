@@ -11,7 +11,7 @@ public class GameScreen extends Screen {
 
     private OrthographicCamera camera;
     private Player player;
-    private EntityManager entityManager = new EntityManager(1);
+    private EntityManager entityManager = new EntityManager(10);
 
     @Override
     public void create() {

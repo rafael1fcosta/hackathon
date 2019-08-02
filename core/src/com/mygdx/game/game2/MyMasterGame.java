@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.mygdx.game.game2.screen.GameScreen;
 import com.mygdx.game.game2.screen.ScreenManager;
 
@@ -42,6 +43,8 @@ public class MyMasterGame extends ApplicationAdapter {
 		//batch.begin();
 		//batch.draw(img, 0, 0);
 		//batch.end();
+
+
 	}
 	
 	@Override

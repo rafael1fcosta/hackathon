@@ -14,6 +14,8 @@ public class EntityManager {
     private final Player player;
 
     public EntityManager(int count) {
+
+
         this.player = new Player(
                 new Vector2((MyMasterGame.WIDTH - TextureManager.Game2.PLAYER.getWidth()) / 2, 0),
                 new Vector2(0, 0),
@@ -28,7 +30,6 @@ public class EntityManager {
                     new Enemy(new Vector2(x, y), new Vector2(0, -speed))
             );
         }
-
 
     }
 
