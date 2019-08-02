@@ -16,23 +16,15 @@ public class ScreenManager extends Game {
     public static BitmapFont font;
     public static HashMap<ScreenType, ScreenAdapter> screenMap;
 
-    MainMenu mainMenu;
-
-
     @Override
-    public void create() {
-
-
-        screenMap = new HashMap<>();
-
+    public void create () {
+        screenMap=new  HashMap<>();
         screenMap.put(ScreenType.MAINMENU, new MainMenu(this));
 
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
         font = new BitmapFont();
         setScreen(screenMap.get(ScreenType.MAINMENU));
-
-
     }
 
     @Override
