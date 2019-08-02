@@ -54,10 +54,13 @@ public class EntityManager {
             shot = 0;
         }
 
-        for (Entity e : entities) {
+        for (int i = 0; i < entities.size; i++) {
+            entities.get(i).render(sb);
+        }
+       /* for (Entity e : entities) {
             if (e == null) return;
                 e.render(sb);
-        }
+        }*/
        // player.render(sb);
 
     }

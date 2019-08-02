@@ -25,8 +25,8 @@ public class Aim extends Entity{
                         (MyMasterGame.HEIGHT - TextureManager.Game2.AIM128.getHeight())/2),
                 new Vector2(0,0)
         );
-        rect.setWidth(6);
-        rect.setHeight(6);
+        rect.setWidth(6.0f);
+        rect.setHeight(6.0f);
         this.entityManager = em;
 
         /*rect = new Rectangle(
@@ -47,15 +47,20 @@ public class Aim extends Entity{
 
     @Override
     public void render(SpriteBatch sb) {
+        int x, y;
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
             Vector2 touchPos = new Vector2();
-            touchPos.set(Gdx.input.getX(), Gdx.input.getY());
+            x = Gdx.input.getX();
+            y = Gdx.input.getY();
+
+           // touchPos.set(Gdx.input.getX(), Gdx.input.getY());
             //camera.unproject(touchPos);
             // touchPos.x -= texture.getWidth() / 2;
             //touchPos.x -= TextureManager.Game2.AIM128.getWidth() / 2;
             //touchPos.y -= texture.getHeight() / 2;
             //touchPos.y -= TextureManager.Game2.AIM128.getHeight() / 2;
-            rect.setCenter(touchPos.x, touchPos.y);
+            //rect.setCenter(touchPos.x, touchPos.y);
+            rect.setCenter(x, y);
             shot(rect);
 
             //rect.setPosition(touchPos);
@@ -71,12 +76,14 @@ public class Aim extends Entity{
                 this.enemyToKill = e;
 
         }
+        update();
     }
 
     @Override
     public void update() {
 
         if(enemyToKill!=null){
+            System.out.println("SHOT");
             entityManager.delete(enemyToKill);
             enemyToKill = null;
         }
