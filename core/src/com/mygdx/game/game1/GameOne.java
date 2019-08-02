@@ -1,16 +1,12 @@
 package com.mygdx.game.game1;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
 import com.mygdx.game.ScreenManager;
 
 public class GameOne extends ScreenAdapter {
@@ -24,6 +20,9 @@ public class GameOne extends ScreenAdapter {
 
     private Array<GameObject> books;
 
+    private Array<Rectangle> collidables;
+
+
     public GameOne(ScreenManager screenManager) {
         this.screenManager = screenManager;
         create();
@@ -36,6 +35,9 @@ public class GameOne extends ScreenAdapter {
         enemy = new Enemy();
 
         books = new Array<>();
+        collidables = new Array<>();
+
+        createCollidables();
 
         gameBackground = new Texture(Gdx.files.internal("backgroundGameOne.jpg"));
     }
@@ -80,6 +82,13 @@ public class GameOne extends ScreenAdapter {
     private void createBook() {
         Book book = new Book(MathUtils.random(0, 950), MathUtils.random(0, 700)); //TODO: limits!
         books.add(book);
+    }
+
+    private void createCollidables() {
+        collidables.add(new Rectangle(500,500, 100, 100));
+
+
+        ((Player) player).addCollidables(collidables);
     }
 
 }

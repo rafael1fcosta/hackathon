@@ -10,7 +10,7 @@ public class Enemy extends GameObject {
     private long playerY;
 
     public Enemy() {
-        super(0, 0, new Texture(Gdx.files.internal("game1/skeleton.png")));
+        super(600, 600, new Texture(Gdx.files.internal("game1/skeleton.png")));
 
     }
 

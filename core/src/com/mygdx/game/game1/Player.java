@@ -5,9 +5,11 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
 
 public class Player extends GameObject {
 
+    private Array<Rectangle> collidables;
 
     public Player() {
         super(0, 0, new Texture(Gdx.files.internal("game1/wizardLeftRed.png")));
@@ -16,7 +18,9 @@ public class Player extends GameObject {
     public void move() {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-
+            if (CollisionEngine.playerCanMove(this, collidables)) {
+                return;
+            }
             getRectangle().x -= 200 * Gdx.graphics.getDeltaTime();
 
             if (getRectangle().x < 0) {
@@ -26,6 +30,9 @@ public class Player extends GameObject {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            if (CollisionEngine.playerCanMove(this, collidables)) {
+                return;
+            }
 
             getRectangle().x += 200 * Gdx.graphics.getDeltaTime();
 
@@ -36,6 +43,9 @@ public class Player extends GameObject {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            if (CollisionEngine.playerCanMove(this, collidables)) {
+                return;
+            }
 
             getRectangle().y += 200 * Gdx.graphics.getDeltaTime();
 
@@ -46,6 +56,9 @@ public class Player extends GameObject {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            if (CollisionEngine.playerCanMove(this, collidables)) {
+                return;
+            }
 
             getRectangle().y -= 200 * Gdx.graphics.getDeltaTime();
 
@@ -72,6 +85,11 @@ public class Player extends GameObject {
 
     public void setTexture(Texture texture) {
         super.setTexture(texture);
+    }
+
+    public void addCollidables(Array<Rectangle> collidables) {
+        this.collidables = collidables;
+
     }
 
 }

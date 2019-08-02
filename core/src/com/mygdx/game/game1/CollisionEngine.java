@@ -18,5 +18,15 @@ public class CollisionEngine {
         }
     }
 
+    public static boolean playerCanMove(GameObject gameObject, Array<Rectangle> collidables) {
 
+        for (Rectangle collidable : collidables) {
+
+            if (gameObject.getRectangle().contains(collidable)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
