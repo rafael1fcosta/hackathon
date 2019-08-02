@@ -4,11 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.ScreenManager;
 import com.mygdx.game.TextureManager;
 import com.mygdx.game.game2.PlayerEnergy;
 
 public class EntityManager {
 
+    private ScreenManager screenManager;
     private final Array<Entity> entities = new Array<>();
    // private final Player player;
     private final Aim aim;
@@ -96,6 +98,7 @@ public class EntityManager {
     }
 
     public boolean gameOver() {
+
         return (getEnemies().size == 0 || playerEnergy.getEnergy() <= 0);
     }
 
@@ -105,11 +108,18 @@ public class EntityManager {
     }
 
     public void delete(Entity e) {
-        entities.removeValue(e, false);
+       try {
+            entities.removeValue(e, false);
+        } catch (Exception ignored){
+        }
 
     }
 
     public int getEnergy() {
        return playerEnergy.getEnergy();
+    }
+
+    public void setScreenManager(ScreenManager screenManager) {
+        this.screenManager = screenManager;
     }
 }
