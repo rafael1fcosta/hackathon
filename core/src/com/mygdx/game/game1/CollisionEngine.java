@@ -6,7 +6,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class CollisionEngine {
 
-    public static void checkForBookPicked(GameObject player, Array<GameObject> books) {
+    public static boolean checkForBookPicked(GameObject player, Array<GameObject> books) {
 
         for (int i = 0; i < books.size; i++) {
 
@@ -14,8 +14,10 @@ public class CollisionEngine {
                 books.removeIndex(i);
                 Player player1 = (Player) player;
                 player1.addPlayerScore();
+                return true;
             }
         }
+        return false;
     }
 
 

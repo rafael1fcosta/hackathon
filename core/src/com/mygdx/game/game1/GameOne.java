@@ -2,6 +2,7 @@ package com.mygdx.game.game1;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
@@ -10,6 +11,8 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.ScreenManager;
+import com.mygdx.game.menu.Game1BadEnding;
+import com.mygdx.game.menu.Game1GoodEnding;
 import com.mygdx.game.menu.MainMenu;
 
 import java.awt.*;
@@ -17,6 +20,7 @@ import java.awt.*;
 public class GameOne extends ScreenAdapter {
 
     private CharSequence str = String.valueOf(Player.playerScore);
+    private Sound bookPicked;
     private boolean isGamePaused;
 
     private ScreenManager screenManager;
@@ -50,6 +54,8 @@ public class GameOne extends ScreenAdapter {
 
         gameBackground = new Texture(Gdx.files.internal("game1/backgroundGameOne.jpg"));
         gamePause = new Texture(Gdx.files.internal("game1/game1Pause.png"));
+
+        bookPicked = Gdx.audio.newSound(Gdx.files.internal("sounds/beep.wav"));
 
     }
 
@@ -94,15 +100,18 @@ public class GameOne extends ScreenAdapter {
         screenManager.getBatch().end();
 
 
-        CollisionEngine.checkForBookPicked(player, books);
+        if(CollisionEngine.checkForBookPicked(player, books)) {
+            bookPicked.play();
+        }
 
 
-        if (Math.random() * 100 < 1) {
+        if (Math.random() * 250 < 1) {
             createBook();
         }
 
         if (CollisionEngine.checkEnemyHit(player, enemy)) {
-            screenManager.setScreen(new MainMenu(screenManager));
+            MainMenu.music.dispose();
+            screenManager.setScreen(new Game1BadEnding(screenManager));
         }
 
         checkGameStatus();
@@ -154,7 +163,8 @@ public class GameOne extends ScreenAdapter {
 
         if (Player.playerScore == 15) {
 
-            screenManager.setScreen(new MainMenu(screenManager));
+            MainMenu.music.dispose();
+            screenManager.setScreen(new Game1GoodEnding(screenManager));
         }
     }
 

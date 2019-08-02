@@ -16,7 +16,7 @@ public class MainMenu extends ScreenAdapter {
     private Texture exitButton = new Texture(Gdx.files.internal("menu/button_exit.png"));
     private Texture tailButton = new Texture(Gdx.files.internal("menu/CT.png"));
 
-    private Music music;
+    public static Music music;
 
 
     public MainMenu(ScreenManager screenManager) {
@@ -36,11 +36,9 @@ public class MainMenu extends ScreenAdapter {
 
         if (Gdx.input.isTouched()) {
 
-            System.out.println();
             if (Gdx.input.getX() > 155f && Gdx.input.getX() < 357f &&
                     Gdx.input.getY() > 642.7f && Gdx.input.getY() < 739.7f) {
                 screenManager.setScreen(new OptionsMenu(screenManager));
-
             }
 
             if (Gdx.input.getX() > 667f && Gdx.input.getX() < 869f &&
