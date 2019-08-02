@@ -14,6 +14,7 @@ public class MainMenu extends ScreenAdapter {
     private Texture menuBackground = new Texture(Gdx.files.internal("menu/mainmenubackground.jpg"));
     private Texture playButton = new Texture(Gdx.files.internal("menu/button_play.png"));
     private Texture exitButton = new Texture(Gdx.files.internal("menu/button_exit.png"));
+    private Texture tailButton = new Texture(Gdx.files.internal("menu/CT.png"));
 
     private Music music;
 
@@ -56,6 +57,7 @@ public class MainMenu extends ScreenAdapter {
         screenManager.batch.draw(menuBackground, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         screenManager.batch.draw(playButton, Gdx.graphics.getWidth() * 0.25f - 202 / 2, Gdx.graphics.getHeight() * 0.10f - 97 / 2);
         screenManager.batch.draw(exitButton, Gdx.graphics.getWidth() * 0.75f - 202 / 2, Gdx.graphics.getHeight() * 0.10f - 97 / 2);
+        screenManager.batch.draw(tailButton, Gdx.graphics.getWidth() * 0.15f, Gdx.graphics.getHeight() * 0.70f);
         changeScreen();
         screenManager.batch.end();
     }

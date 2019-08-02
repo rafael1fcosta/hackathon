@@ -1,6 +1,7 @@
 package com.mygdx.game.game2.Entity;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -14,6 +15,7 @@ public class Enemy extends Entity {
     private final PlayerEnergy playerEnergy;
     private final EntityManager entityManager;
     private float delta, deltaI;
+    private Sound shoot;
 
     //public Enemy(EnemyType typeEnemy, Vector2 pos, Vector2 direction) {
     public Enemy(Texture texture, Vector2 pos, Vector2 direction, PlayerEnergy playerEnergy, EntityManager entityManager) {
@@ -30,6 +32,7 @@ public class Enemy extends Entity {
     public void setDelta(float delta) {
         this.delta = delta;
     }
+
 
     @Override
     public void update() {
@@ -52,6 +55,8 @@ public class Enemy extends Entity {
     private void shoot() {
         playerEnergy.getShot();
         entityManager.shot();
+        shoot = Gdx.audio.newSound(Gdx.files.internal("sounds/shots.mp3"));
+        shoot.play();
         System.out.println("Shoot " + texture.toString());
     }
 }
