@@ -4,9 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.math.Rectangle;
 
 public class Player extends GameObject {
+
+    public static int playerScore = 0;
 
 
     public Player() {
@@ -74,4 +75,7 @@ public class Player extends GameObject {
         super.setTexture(texture);
     }
 
+    public void addPlayerScore() {
+        this.playerScore ++;
+    }
 }
