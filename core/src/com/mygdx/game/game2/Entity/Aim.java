@@ -3,6 +3,7 @@ package com.mygdx.game.game2.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,6 +18,9 @@ public class Aim extends Entity{
     private final EntityManager entityManager;
     Rectangle rect = new Rectangle();
     private Entity enemyToKill;
+    private OrthographicCamera camera;
+    private static final int W = 6;
+    private static final int H = 6;
 
     public Aim(EntityManager em) {
         super(new Texture(0,0, Pixmap.Format.RGB888),
@@ -25,8 +29,8 @@ public class Aim extends Entity{
                         (MyMasterGame.HEIGHT - TextureManager.Game2.AIM128.getHeight())/2),
                 new Vector2(0,0)
         );
-        rect.setWidth(6.0f);
-        rect.setHeight(6.0f);
+        rect.setWidth(W);
+        rect.setHeight(H);
         this.entityManager = em;
 
         /*rect = new Rectangle(
@@ -42,6 +46,8 @@ public class Aim extends Entity{
                 TextureManager.Game2.AIM128.getWidth()/2,
                 TextureManager.Game2.AIM128.getHeight()/2));
         pm.dispose();
+
+        camera = new OrthographicCamera();
     }
 
 
@@ -49,18 +55,18 @@ public class Aim extends Entity{
     public void render(SpriteBatch sb) {
         int x, y;
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
-            Vector2 touchPos = new Vector2();
-            x = Gdx.input.getX();
-            y = Gdx.input.getY();
 
+            Vector2 touchPos = new Vector2(Gdx.input.getX()  ,MyMasterGame.HEIGHT - Gdx.input.getY());
+           // touchPos.x -= W;
+           // touchPos.y -= H;
            // touchPos.set(Gdx.input.getX(), Gdx.input.getY());
-            //camera.unproject(touchPos);
+           // camera.translate(touchPos);
             // touchPos.x -= texture.getWidth() / 2;
             //touchPos.x -= TextureManager.Game2.AIM128.getWidth() / 2;
             //touchPos.y -= texture.getHeight() / 2;
             //touchPos.y -= TextureManager.Game2.AIM128.getHeight() / 2;
             //rect.setCenter(touchPos.x, touchPos.y);
-            rect.setCenter(x, y);
+            rect.setPosition(touchPos);
             shot(rect);
 
             //rect.setPosition(touchPos);
