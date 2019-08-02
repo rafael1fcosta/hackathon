@@ -98,11 +98,6 @@ public class Player extends GameObject {
     @Override
     public void render(Batch batch) {
         move();
-        checkForWin();
-    }
-
-    private void checkForWin() {
-
     }
 
     public float getX() {

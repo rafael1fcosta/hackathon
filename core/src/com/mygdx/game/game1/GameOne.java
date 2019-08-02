@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.ScreenManager;
+import com.mygdx.game.menu.MainMenu;
 
 import java.awt.*;
 
@@ -100,6 +101,11 @@ public class GameOne extends ScreenAdapter {
             createBook();
         }
 
+        if (CollisionEngine.checkEnemyHit(player, enemy)) {
+            screenManager.setScreen(new MainMenu(screenManager));
+        }
+
+        checkGameStatus();
 
     }
 
@@ -110,17 +116,22 @@ public class GameOne extends ScreenAdapter {
     }
 
     private void createBook() {
-        Book book = new Book(MathUtils.random(0, 950), MathUtils.random(0, 700)); //TODO: limits!
+        Book book = new Book(MathUtils.random(0, 1000), 120 + MathUtils.random(0, 525)); //TODO: limits!
+
+        if (CollisionEngine.bookOutOfBounds(book, collidables)) {
+            createBook();
+        }
+
         books.add(book);
     }
 
     private void createCollidables() {
         collidables.add(new Rectangle(155, 260, 55, 55));
-        collidables.add(new Rectangle(121, 455, 195, 57));
-        collidables.add(new Rectangle(468, 164, 50, 200));
+        collidables.add(new Rectangle(121, 455, 190, 55));
+        collidables.add(new Rectangle(468, 164, 55, 195));
 
         collidables.add(new Rectangle(692, 224, 45, 20));
-        collidables.add(new Rectangle(748, 224, 120, 40));
+        collidables.add(new Rectangle(748, 224, 115, 35));
         collidables.add(new Rectangle(875, 224, 25, 50));
 
         collidables.add(new Rectangle(840, 384, 25, 25));
@@ -137,6 +148,14 @@ public class GameOne extends ScreenAdapter {
         collidables.add(new Rectangle(477, 700, 536, 120));
 
         ((Player) player).addCollidables(collidables);
+    }
+
+    private void checkGameStatus() {
+
+        if (Player.playerScore == 15) {
+
+            screenManager.setScreen(new MainMenu(screenManager));
+        }
     }
 
     private void setPlayerPosToEnemy() {

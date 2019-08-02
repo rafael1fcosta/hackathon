@@ -37,4 +37,30 @@ public class CollisionEngine {
         }
 
     }
+
+    public static boolean checkEnemyHit(GameObject player, GameObject enemy) {
+
+        if (player.getRectangle().contains(enemy.getRectangle())) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean bookOutOfBounds(Book book, Array<Rectangle> collidables) {
+
+        float bookMinX = book.getX();
+        float bookMinY = book.getY();
+        float bookMaxX = book.getRectangle().width + bookMinX;
+        float bookMaxY = book.getRectangle().height + bookMinY;
+
+        for (Rectangle collidable : collidables) {
+            if (bookMinX <= collidable.x + collidable.width
+                    && bookMaxX >= collidable.x
+                    && bookMinY <= collidable.y + collidable.height
+                    && bookMaxY >= collidable.y) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
